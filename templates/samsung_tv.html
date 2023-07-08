@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+ <meta charset="UTF-8">
+ <meta http-equiv="X-UA-Compatible" content="IE=edge">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>samsung_tv</title>
+
+ <!-- bootstrap core css -->
+ <link rel="stylesheet" type="text/css" href="static/css/bootstrap2.css" />
+
+ <style>
+  .product-list {
+   display: flex;
+   flex-wrap: wrap;
+
+  }
+
+  .product {
+   width: calc(100% / 4 - 20px);
+   margin: 10px;
+   padding: 10px;
+   border: 3px solid #000000;
+   text-align: center;
+  }
+
+  .product img {
+   max-width: 100%;
+   height: auto;
+  }
+ </style>
+
+
+
+</head>
+
+<body>
+
+ <div class="p-3 mb-2 bg-dark text-dark">
+  <h1 style="font-family: 'Times New Roman', Times, serif; color: rgb(255, 255, 255);text-align: center;">Amazon
+   Products</h1>
+ </div>
+
+ <div class="product-list">
+  {% for product in samsungr %}
+  <div class="product">
+   <img src="{{ product['image_source'] }}" alt="{{ product['product_name'] }}">
+   <h3 style="font-size: 20px">{{ product['product_name'] }}</h3>
+   <p>Price: {{ product['product_price'] }}</p>
+   <p>Amazon Ratings: {{ product['amazon_ratings'] }}</p>
+   <p style="color:rgb(255, 15, 15)">Random Forest Score: {{ product['random_forest'] }}</p>
+   <p style="color:rgb(255, 0, 0)">Linear Regression Score: {{ product['linearRegression'] }}</p>
+
+   <a href="{{product['product_link']}}">
+    <button class="btn btn-primary">Buy Now</button>
+   </a>
+  </div>
+  {% endfor %}
+ </div>
+
+
+
+ <!-- 
+
+
+  <div class="p-3 mb-2 bg-dark text-dark">
+    <h1 style="font-family: 'Times New Roman', Times, serif; color: rgb(255, 255, 255);text-align: center;">Flipkart
+      Products</h1>
+  </div>
+  <div class="product-list" style="margin-left: 5cm;">
+    {% for product in samsungr2 %}
+    <div class="product">
+      <img src="{{ product['image_source'] }}" alt="{{ product['product_name'] }}">
+      <h3 style="font-size: larger;">{{ product['product_name'] }}</h3>
+      <p>Price: {{ product['product_price'] }}</p>
+      <p>flipkart Ratings: {{ product['flipkart_ratings'] }}</p>
+      <p>Random Forest Score: {{ product['random_forest'] }}</p>
+      <p>Linear Regression Score: {{ product['linearRegression'] }}</p>
+
+      <a href="{{product['product_link']}}">
+        <button class="btn btn-primary">Buy Now</button>
+      </a>
+    </div>
+    {% endfor %}
+  </div>
+</body> -->
+
+</html>
